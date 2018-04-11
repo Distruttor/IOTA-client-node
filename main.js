@@ -11,8 +11,12 @@ const seed = "LZAXASHEXEBOQPEMCFAIVRQJDWNSHNIEVABQJTETROFHXNKUPIPKPRIBH9MOFCXQAW
 const depth = 3;
 const minimumWeightMagnitude = 14;
 
-
-iota.api.getNewAddress(seed, (error, address) => {
+const options = [
+	{
+		'security': 1
+	}
+]
+iota.api.getNewAddress(seed, options,(error, address) => {
     console.log("New address generated: " + address)
     const msg = iota.utils.toTrytes("Prova inserimento transaction");
     const transfer = [{
@@ -27,7 +31,7 @@ iota.api.getNewAddress(seed, (error, address) => {
             console.log(error);
         } else {
             //Get the transaction object from trytes
-            let transaction = iota.utils.transactionObject(response[0]);
+            var transaction = iota.utils.transactionObject(response[0]);
 
             console.log(transaction);
             console.log('\n')
@@ -46,7 +50,7 @@ iota.api.getNewAddress(seed, (error, address) => {
                     console.log(transaction)
                     console.log('\n')
                     //Reconvert transaction to trytes
-                    let trytes = iota.utils.transactionTrytes(transaction);
+                    var trytes = iota.utils.transactionTrytes(transaction);
 
                     //PoW to find the nonce
                     const path = "./"
