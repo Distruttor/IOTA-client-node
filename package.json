@@ -1,0 +1,15 @@
+{
+  "name": "iota",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ccurl.interface.js": "0.0.9",
+    "iota.lib.js": "^0.4.7"
+  }
+}
